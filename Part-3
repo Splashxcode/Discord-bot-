@@ -1,0 +1,17 @@
+@client.command()
+async def userinfo(ctx):
+    user =ctx.author
+
+    embed=discord.Embed(title="USER INFO", description=f"Here is the info we retrived about {user}", colour=user.colour)
+    embed.set_thumbnail(url=user.avatar_url)
+    embed.add_field(name="NAME", value=user.name, inline=True)
+    embed.add_field(name="NICKNAME", value=user.nick, inline=True)
+    embed.add_field(name="ID", value=user.id, inline=True)
+    embed.add_field(name="STATUS", value=user.status, inline=True)
+    embed.add_field(name="TOP ROLE", value=user.top_role.name, inline=True)
+    await ctx.send(embed=embed)
+
+@client.command()
+async def clear(ctx, amount=99999999):
+    await ctx.channel.purge(limit=amount)
+    await ctx.send("The text has been deleted") ###Optional,you can remove that!
