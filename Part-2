@@ -1,0 +1,9 @@
+@client.command()
+async def kick(ctx, member: discord.Member, *,reason=None):
+    await member.kick(reason=reason)
+    await ctx.send("The user has been kicked!")
+
+@client.command()
+async def ban(ctx, member: discord.Member, *,reason=None):
+    await member.ban(reason=reason)
+    await ctx.send("The user has now been banned")
